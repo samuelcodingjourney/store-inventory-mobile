@@ -10,8 +10,8 @@ class ShopItem {
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
   final List<ShopItem> items = [
-    ShopItem("View Products", Icons.checklist),
-    ShopItem("Add Product", Icons.add_shopping_cart),
+    ShopItem("View Items", Icons.checklist),
+    ShopItem("Add Item", Icons.add_shopping_cart),
     ShopItem("Logout", Icons.logout),
 ];
   // This widget is the home page of your application. It is stateful, meaning
@@ -78,11 +78,25 @@ class ShopCard extends StatelessWidget {
   final ShopItem item;
 
   const ShopCard(this.item, {Key? key}); // Constructor
-
   @override
   Widget build(BuildContext context) {
+    var colors = Colors.indigo;
+    var identify = '${this.item.name}';
+    switch(identify) {
+      case "View Items": colors = Colors.yellow; 
+      break;
+
+      case "Add Item": colors = Colors.blue; 
+      break;
+
+      case "Logout": colors = Colors.red; 
+      break;
+
+      default: colors= colors; 
+      break;
+    }
     return Material(
-      color: Colors.indigo,
+      color: colors,
       child: InkWell(
         // Responsive touch area
         onTap: () {
@@ -90,7 +104,7 @@ class ShopCard extends StatelessWidget {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
-                content: Text("You pressed the ${item.name} button!")));
+                content: Text("You clicked the ${item.name} button")));
         },
         child: Container(
           // Container to hold Icon and Text
