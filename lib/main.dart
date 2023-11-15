@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_inventory/menu.dart';
+import 'package:store_inventory/screens/menu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,3 +36,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
