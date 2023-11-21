@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store_inventory/screens/menu.dart';
 import 'package:store_inventory/screens/shoplist_form.dart'; // TODO: Import the ShopFormPage page here
+import 'package:store_inventory/screens/list_product.dart';
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
 
@@ -65,7 +66,19 @@ ListTile(
     TODO: Create routing to ShopFormPage here
     */
   },
-),// TODO: routing section
+),
+// TODO: routing section
+ListTile(
+    leading: const Icon(Icons.shopping_basket),
+    title: const Text('Product List'),
+    onTap: () {
+        // Route menu to product page
+        Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const ProductPage()),
+        );
+    },
+),
         ],
       ),
     );
